@@ -9,6 +9,10 @@ LT_type=PSF
 detector=NextFlex
 #detector=NEXT100 
 
+# Number of photons and events for the light table
+N_PHOTONS=1000000
+N_EVENTS=100
+
 jobname=$(detector)_$(LT_type)_LT
 
 CONFIG=$(jobname).config.mac
@@ -23,7 +27,7 @@ HOME_LOCATION=/home/krishan.mistry/code/LightTableGen/
 NewProcess = $(Process)
 
 executable = $(jobname)_job.sh
-arguments = $(NewProcess) $(jobname)
+arguments = $(NewProcess) $(jobname) $(N_PHOTONS) $(N_EVENTS)
 
 # Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
 #  queue number assigned to this set of jobs at the time of submission.

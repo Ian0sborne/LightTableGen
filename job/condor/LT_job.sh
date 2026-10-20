@@ -17,8 +17,8 @@ source /software/nexus/setup_nexus.sh
 # source /software/IC/setup_IC.sh
 
 # Set the configurable variables
-N_PHOTONS=1000000
-N_EVENTS=100
+N_PHOTONS=$3
+N_EVENTS=$4
 CONFIG=${JOBNAME}.config.mac
 INIT=${JOBNAME}.init.mac
 
