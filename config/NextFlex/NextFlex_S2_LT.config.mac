@@ -1,0 +1,82 @@
+## ----------------------------------------------------------------------------
+## nexus | NextFlex_S2_LT.config.mac
+##
+## Initialization macro to generate the S2 light tables in NEXT100
+##
+## The NEXT Collaboration
+## ----------------------------------------------------------------------------
+
+# verbosity
+/control/verbose  1
+/run/verbose      1
+/event/verbose    0
+/tracking/verbose 0
+
+# generator
+/Generator/ScintGenerator/region   EL_GAP               # changed from S2_SIPM_PSF to EL_GAP
+/Generator/ScintGenerator/nphotons 1000000
+
+# geometry
+/Geometry/PmtR11410/time_binning       25. nanosecond
+## /Geometry/NextFlex/max_step_size    1. mm            (removed because missing in NextFlex)
+/Geometry/NextFlex/gas_pressure        15 bar           # (changed from pressure to gas_pressure)
+/Geometry/NextFlex/el_field_on         false
+
+
+/Geometry/NextFlex/el_gap_gen_disk_diam  8.5 mm         # newly added (before it was just a square of pitch size, now i want the circle to fit one square sipm)
+/Geometry/NextFlex/el_gap_gen_disk_x     0. mm          # newly added (before it was just a square of pitch size)
+/Geometry/NextFlex/el_gap_gen_disk_y     0. mm          # newly added (before it was just a square of pitch size)
+/Geometry/NextFlex/el_gap_gen_disk_zmax  1.             # changed from el_gap_slice_max to el_gap_gen_disk_zmax
+/Geometry/NextFlex/el_gap_gen_disk_zmin  0.             # changed from el_gap_slice_min to el_gap_gen_disk_zmin
+
+# all the extra geometry added to overwrite the NextFlex defaults
+/Geometry/NextFlex/gas              enrichedXe
+/Geometry/NextFlex/gas_temperature  300. kelvin
+/Geometry/NextFlex/sc_yield         25510. 1/MeV
+/Geometry/NextFlex/e_lifetime       1000. ms
+
+/Geometry/NextFlex/active_length      116. cm
+/Geometry/NextFlex/active_diam        100. cm
+/Geometry/NextFlex/buffer_length      280. mm
+
+/Geometry/NextFlex/cathode_transparency .98
+/Geometry/NextFlex/anode_transparency   .88
+/Geometry/NextFlex/gate_transparency    .88
+
+/Geometry/NextFlex/el_gap_length    10. mm
+
+/Geometry/NextFlex/fc_wls_mat       TPB
+/Geometry/NextFlex/fc_with_fibers   false
+/Geometry/NextFlex/fiber_mat        EJ280
+/Geometry/NextFlex/fiber_claddings  2
+/Geometry/NextFlex/fiber_sensor_time_binning  25. ns
+
+/Geometry/NextFlex/ep_with_PMTs         true
+/Geometry/NextFlex/ep_with_teflon       false
+/Geometry/NextFlex/ep_copper_thickness  12. cm
+/Geometry/NextFlex/ep_wls_mat           TPB
+
+/Geometry/NextFlex/tp_copper_thickness  12. cm
+/Geometry/NextFlex/tp_teflon_thickness   0. mm          # removing teflon masks
+/Geometry/NextFlex/tp_teflon_hole_diam   7.9 mm
+/Geometry/NextFlex/tp_wls_mat           TPB
+/Geometry/NextFlex/tp_kapton_anode_dist 12. mm
+/Geometry/NextFlex/tp_sipm_sizeX        6 mm
+/Geometry/NextFlex/tp_sipm_sizeY        6 mm
+/Geometry/NextFlex/tp_sipm_sizeZ        2.0 mm
+/Geometry/NextFlex/tp_sipm_pitchX       11. mm
+/Geometry/NextFlex/tp_sipm_pitchY       11. mm
+/Geometry/NextFlex/tp_sipm_time_binning 1. microsecond
+
+/Geometry/NextFlex/ics_thickness  12. cm
+
+# physics
+/PhysicsList/Nexus/clustering          false
+/PhysicsList/Nexus/drift               false
+/PhysicsList/Nexus/electroluminescence false
+/PhysicsList/Nexus/photoelectric       false
+
+# persistency
+/nexus/random_seed            9800
+/nexus/persistency/start_id   9800
+/nexus/persistency/output_file NEXUS_OUTPUT
