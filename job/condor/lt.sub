@@ -26,7 +26,7 @@ HOME_LOCATION=/home/krishan.mistry/code/LightTableGen/
 #NewProcess = $INT(newjobid, %d)
 NewProcess = $(Process)
 
-executable = $(jobname)_job.sh
+executable = LT_job.sh
 arguments = $(NewProcess) $(jobname) $(N_PHOTONS) $(N_EVENTS)
 
 # Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the 
