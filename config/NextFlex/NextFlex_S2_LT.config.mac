@@ -23,7 +23,7 @@
 /Geometry/NextFlex/el_field_on         false
 
 
-/Geometry/NextFlex/el_gap_gen_disk_diam  8.5 mm         # newly added (before it was just a square of pitch size, now i want the circle to fit one square sipm)
+/Geometry/NextFlex/el_gap_gen_disk_diam  1000 mm        # newly added (before it was just a square of pitch size, now i want the circle to fit one square sipm)
 /Geometry/NextFlex/el_gap_gen_disk_x     0. mm          # newly added (before it was just a square of pitch size)
 /Geometry/NextFlex/el_gap_gen_disk_y     0. mm          # newly added (before it was just a square of pitch size)
 /Geometry/NextFlex/el_gap_gen_disk_zmax  1.             # changed from el_gap_slice_max to el_gap_gen_disk_zmax
