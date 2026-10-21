@@ -96,8 +96,8 @@ for i, filename in enumerate(lt_filenames, 0):
 
     # Get the metadata from the files
     configuration = pd.read_hdf(filename, "MC/configuration").set_index("param_key")
-    num_events = int(configuration.loc["num_events"][0])
-    nphotons   = int(configuration.loc["/Generator/ScintGenerator/nphotons"][0])
+    num_events = int(configuration.loc["num_events"].iloc[0])
+    nphotons   = int(configuration.loc["/Generator/ScintGenerator/nphotons"].iloc[0])
 
     # Get the sensor response information
     sns_response  = pd.read_hdf(filename, "MC/sns_response")
