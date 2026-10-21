@@ -13,17 +13,24 @@ from invisible_cities.io.dst_io import df_writer
 
 # Takes in the compressed nexus files from simulation
 
-
 # Configure the script here
 signal_type = "S1" # S1/S2
-detector_db = "next100"
 pmt = "PmtR11410"
-Active_r = 1000 # active radius in mm
-EL_GAP = 10.0 # EL gap in mm
-SiPM_Pitch = 15
+detector_db = "densetp" # next100/densetp
+
+if detector_db == "next100":
+    detector_name = "NEXT100"
+    Active_r = 1000 # active radius in mm
+    EL_GAP = 10.0 # EL gap in mm
+    SiPM_Pitch = 15
+elif detector_db == "densetp":
+    detector_name = "NextFlex"
+    Active_r = 1000 # active radius in mm
+    EL_GAP = 10.0 # EL gap in mm
+    SiPM_Pitch = 11
+
 save=True
 save_Err=True
-
 
 # Set the Binning
 
@@ -52,9 +59,9 @@ config = pd.DataFrame.from_dict(config)
 # Load in the files -- configure the path
 
 if signal_type == "S1":
-    lt_dir = os.path.expandvars("../files/NEXT100_S1_LT/")
+    lt_dir = os.path.expandvars(f"../files/{detector_name}_S1_LT/")
 else: 
-    lt_dir = os.path.expandvars("../files/NEXT100_S2_LT/")
+    lt_dir = os.path.expandvars(f"../files/{detector_name}_S2_LT/")
 
 lt_filenames = glob.glob(os.path.join(lt_dir, "*.h5"))
 lt_filenames = sorted(lt_filenames)
@@ -168,7 +175,7 @@ else:
     ERR[pmt + f"_total"] = ERR.loc[:, ERR.columns.difference(["x", "y", "z"])].sum(axis=1)
 
 # Save the table to an output file
-outfilename = f"../LT/NEXT100-MC_{signal_type}_LT.h5"
+outfilename = f"../LT/{detector_name}-MC_{signal_type}_LT.h5"
 
 if save:
     with tb.open_file(outfilename, 'w') as h5out:
