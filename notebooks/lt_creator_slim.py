@@ -1,4 +1,5 @@
 import os
+os.environ["HDF5_USE_FILE_LOCKING"] = "FALSE"
 import re
 import sys
 import glob
