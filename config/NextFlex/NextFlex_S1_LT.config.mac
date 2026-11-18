@@ -38,7 +38,7 @@
 
 /Geometry/NextFlex/el_gap_length    10. mm
 
-/Geometry/NextFlex/fc_wls_mat       TPB
+/Geometry/NextFlex/fc_wls_mat       NONE
 /Geometry/NextFlex/fc_with_fibers   false
 /Geometry/NextFlex/fiber_mat        EJ280
 /Geometry/NextFlex/fiber_claddings  2
@@ -47,12 +47,12 @@
 /Geometry/NextFlex/ep_with_PMTs         true
 /Geometry/NextFlex/ep_with_teflon       false
 /Geometry/NextFlex/ep_copper_thickness  12. cm
-/Geometry/NextFlex/ep_wls_mat           TPB
+/Geometry/NextFlex/ep_wls_mat           NONE
 
 /Geometry/NextFlex/tp_copper_thickness  12. cm
 /Geometry/NextFlex/tp_teflon_thickness   0. mm          # removing teflon masks
 /Geometry/NextFlex/tp_teflon_hole_diam   7.9 mm
-/Geometry/NextFlex/tp_wls_mat           TPB
+/Geometry/NextFlex/tp_wls_mat           NONE
 /Geometry/NextFlex/tp_kapton_anode_dist 12. mm
 /Geometry/NextFlex/tp_sipm_sizeX        6 mm
 /Geometry/NextFlex/tp_sipm_sizeY        6 mm
